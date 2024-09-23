@@ -1,20 +1,19 @@
-def calcular_gorjeta(valor_conta, percentual_gorjeta):
-    if percentual_gorjeta == 10:
-        return valor_conta * 0.10
-    elif percentual_gorjeta == 15:
-        return valor_conta * 0.15
-    elif percentual_gorjeta == 20:
-        return valor_conta * 0.20
+def calcular_calorias(atividade, tempo):
+    if atividade == "caminhada":
+        return tempo * 5
+    elif atividade == "corrida":
+        return tempo * 10
+    elif atividade == "ciclismo":
+        return tempo * 8
     else:
         return None
-valor_conta = float(input("Informe o valor da conta: R$ "))
-percentual_gorjeta = int(input("Informe o percentual de gorjeta (10, 15, 20): "))
 
-gorjeta = calcular_gorjeta(valor_conta, percentual_gorjeta)
+atividade = input("Informe o tipo de atividade (caminhada, corrida ou ciclismo): ").lower()
+tempo = int(input("Informe o tempo em minutos: "))
 
-if gorjeta is not None:
-    total = valor_conta + gorjeta
-    print(f"Gorjeta: R$ {gorjeta:.2f}")
-    print(f"Total: R$ {total:.2f}")
+calorias_queimadas = calcular_calorias(atividade, tempo)
+
+if calorias_queimadas is not None:
+    print(f"Você queimou {calorias_queimadas} calorias durante {tempo} minutos de {atividade}.")
 else:
-    print("Percentual inválido.")
+    print("Atividade inválida.")
